@@ -119,12 +119,7 @@ var Game = function(){
 
 		if(this.board[x][y] != -1 || y==this.rows){
 			if(!this.animationEnabled){ //Need to show the final piece
-<<<<<<< HEAD
-				console.log(x,y);
 				this.colorCell(x,y-1,this.playerColor[this.player]);
-=======
-				this.colorCell(x,y-1,"empty",this.playerColor[this.player]);
->>>>>>> 32f241bcd429cb0bd9df7f885cbf06bbbf258c5d
 			}
 
 			this.animation = false;

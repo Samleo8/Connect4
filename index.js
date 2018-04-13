@@ -132,10 +132,12 @@ var Game = function(){
 			return;
 		}
 		else{
-			this.animation = true;				this.colorCell(x,y,this.playerColor[this.player],"empty");
-	if(y){
-			this.colorCell(x,y-1,"empty",this.playerColor[this.player]);
-	}
+			if(this.animationEnabled){
+				this.animation = true;				this.colorCell(x,y,this.playerColor[this.player],"empty");
+				if(y){
+						this.colorCell(x,y-1,"empty",this.playerColor[this.player]);
+				}
+			}
 
 			var self = this;
 
@@ -163,7 +165,6 @@ var Game = function(){
 	this.checkEndGame = function(x,y){
 		this.totalPiecesDropped++;
 
-		console.log(x+","+y);
 		x = parseInt(x);
 		y = parseInt(y);
 
@@ -276,7 +277,7 @@ var Game = function(){
 			this.message("Player "+parseInt(this.player+1)+" ("+this.playerColor[this.player].toUpperCase()+") wins!");
 		}
 		else{
-			this.message("Draw!");
+			this.message("IT'S A DRAW!");
 		}
 
 		this.init();

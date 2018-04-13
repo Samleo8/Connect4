@@ -71,7 +71,7 @@ td .piece{
     margin-top:15px;
 
     font-family:"Channel",Calibri,Arial,Sans;
-	font-size:10px;
+	font-size:11px;
 }
 
 .options-container div{
@@ -117,7 +117,7 @@ td .piece{
 .checkbox .checkmark{
     z-index: -10;
 }
-    
+
 /* Hover Effects */
 .checkbox:hover input[type="checkbox"]:checked ~ .checkmark {
     background-color:#0288d1;
@@ -168,7 +168,7 @@ input[type="checkbox"]:checked ~ .checkmark:after {
 	position:absolute;
 	margin-top: auto;
 	margin-bottom: auto;
-	margin-left: 5px;
+	margin-left: 10px;
 
 	top:0px; bottom:3px;
 

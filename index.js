@@ -8,6 +8,7 @@ var Game = function(){
 	this.playerColor = ["orange", "green"];
 
 	this.animation = false;
+	this.animationEnabled = true;
 	this.dropDelay = 100;
 
 	this.rows = 6;
@@ -102,11 +103,10 @@ var Game = function(){
 		var chBx = optionsEle.getElementsByTagName("input")[0];
 		chBx.checked = true;
 		this.animationEnabled = true;
-		
+
 		chBx.addEventListener("change",function(){
 			self.animationEnabled = !self.animationEnabled;
 		});
-
 		//self.gameArea.style.height = (180+(this.rows*53+1))+"px";
 	}
 
@@ -139,9 +139,14 @@ var Game = function(){
 
 			var self = this;
 
-			setTimeout(function(){
-				self.dropPiece(x,y+1)
-			}, self.dropDelay);
+			if(this.animationEnabled){
+				setTimeout(function(){
+					self.dropPiece(x,y+1)
+				}, self.dropDelay);
+			}
+			else{
+				self.dropPiece(x,y+1);
+			}
 		}
 	}
 

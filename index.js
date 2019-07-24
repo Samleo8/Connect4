@@ -2,7 +2,7 @@
 var Game = function(){
 	this.board = [];
 
-	this.gameArea;
+	this.gameArea = null;
 
 	this.player = 0;
 	this.playerColor = ["orange", "green"];
@@ -15,7 +15,7 @@ var Game = function(){
 	this.cols = 7;
 
 	this.init = function(args){
-		var x,y,i,j,k;
+		var i,j;
 
 		if(typeof args != "undefined"){
 			if(typeof args["rows"] != "undefined") this.rows = args["rows"];
@@ -156,9 +156,9 @@ var Game = function(){
 		}
 	}
 
-	this.colorCell = function(x,y,color_to,color_from){
+	this.colorCell = function(x, y, color_to, color_from){
 		if(color_from == null || typeof color_from == "undefined"){
-			color_from = "empty"
+			color_from = "empty";
 		}
 
 		var ele = document.getElementById("piece_"+x+"_"+y);
@@ -178,7 +178,8 @@ var Game = function(){
 			"down":1,
 			"left":-1,
 			"right":1
-		}
+		};
+		
 		//Check Vertical (need only check down)
 		cnt = 1;
 		for(i=1;i<4;i++){
@@ -297,7 +298,7 @@ var game = new Game();
 
 window.addEventListener("load", function(){
 	game.init({});
-},false);
+}, false);
 
 String.prototype.replaceAll = function(x,y){
 	return this.split(x).join(y);
